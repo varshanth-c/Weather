@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+Here's a structured README file for your **Real-Time Data Processing System for Weather Monitoring** project, following the specified format and highlighting key sections:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# Real-Time Data Processing System for Weather Monitoring
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+The **Real-Time Data Processing System** is a dynamic application designed to continuously monitor and analyze weather conditions across major Indian metros. It utilizes the **OpenWeatherMap API** to retrieve real-time weather data, which is processed and summarized using aggregates and rollups. The system aims to provide insights into weather trends and alert users when certain weather thresholds are met.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Key Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Weather Data Retrieval**: Fetch weather data every 5 minutes for specified cities.
+- **Temperature Conversion**: Convert temperatures from Kelvin to Celsius based on user preferences.
+- **Daily Weather Summary**: Roll up data to provide daily summaries, including average, maximum, and minimum temperatures.
+- **Alerting Mechanism**: Trigger alerts based on user-configurable thresholds for weather conditions.
+- **Visualizations**: Present data trends and alerts through charts and summaries.
 
-### `npm test`
+## Objective
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Develop a system to monitor weather conditions.
+- Provide summarized insights using rollups and aggregates.
+- Utilize data from the OpenWeatherMap API.
 
-### `npm run build`
+## Data Source
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Continuously retrieve weather data from the **OpenWeatherMap API**.
+- Focus on the following parameters:
+  - `main`: Weather condition (e.g., Rain, Snow, Clear)
+  - `temp`: Current temperature in Celsius
+  - `feels_like`: Perceived temperature in Celsius
+  - `dt`: Time of data update (Unix timestamp)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Processing and Analysis
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **API Calls**: Call the OpenWeatherMap API every 5 minutes for weather data in major Indian metros:
+   - Cities: Delhi, Mumbai, Chennai, Bangalore, Kolkata, Hyderabad
+2. **Weather Update Processing**:
+   - Convert temperature from Kelvin to Celsius.
 
-### `npm run eject`
+## Rollups and Aggregates
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Daily Weather Summary
+- Roll up data for each day and calculate:
+  - Average temperature
+  - Maximum temperature
+  - Minimum temperature
+  - Dominant weather condition
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Alerting Thresholds
+- Define user-configurable thresholds for temperature/weather conditions.
+- Track weather data continuously and compare it with thresholds.
+- Trigger alerts if thresholds are breached (console notifications or email).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Implement Visualizations
+- Display daily summaries, historical trends, and alerts.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Test Cases
 
-## Learn More
+1. **System Setup**:
+   - Verify successful connection to the OpenWeatherMap API.
+   
+2. **Data Retrieval**:
+   - Simulate API calls and ensure correct data retrieval and parsing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Temperature Conversion**:
+   - Test conversion of temperatures based on user preferences.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Daily Weather Summary**:
+   - Simulate multiple weather updates and verify summary calculations.
 
-### Code Splitting
+5. **Alerting Thresholds**:
+   - Define thresholds and simulate weather data exceeding those thresholds.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Bonus Features
+- Support additional weather parameters (e.g., humidity, wind speed) in rollups/aggregates.
+- Retrieve weather forecasts and generate summaries based on predicted conditions.
 
-### Analyzing the Bundle Size
+## Evaluation Criteria
+- Functionality and correctness of the system.
+- Accuracy in data parsing, conversion, and aggregate calculations.
+- Efficiency of data retrieval and processing intervals.
+- Completeness of test cases for various scenarios.
+- Clarity and maintainability of the codebase.
+- Bonus features implementation.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## Installation and Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+-1 **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd weather-monitoring-system
+   ```
 
-### Advanced Configuration
+ -2 **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+ -3 based on requirement - **Set up Environment Variables**:
+   - Create a `.env` file in the root directory and add your OpenWeatherMap API key:
+   ```env
+   OPENWEATHERMAP_API_KEY=your_api_key_here
+   ```
 
-### Deployment
+-4 **Start the Application**:
+   ```bash
+   npm start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+-5 **Access the Application**:
+   - Visit `http://localhost:3000` in your browser.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Conclusion
+ Real-Time Data Processing System for Weather Monitoring, covering objectives, features, and setup instructions.
